@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx vercel dev",
-    "build": "npx vercel build",
     "start": "npx vercel start",
     "deploy": "npx vercel deploy"
   },
