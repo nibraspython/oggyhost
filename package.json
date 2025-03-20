@@ -1,0 +1,14 @@
+{
+  "name": "vercel-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "start": "vercel start",
+    "deploy": "vercel deploy"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  }
+}
