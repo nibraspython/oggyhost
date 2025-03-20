@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build",
-    "start": "vercel start",
-    "deploy": "vercel deploy"
+    "dev": "npx vercel dev",
+    "build": "npx vercel build",
+    "start": "npx vercel start",
+    "deploy": "npx vercel deploy"
   },
   "dependencies": {
     "node-fetch": "^3.3.0"
+  },
+  "devDependencies": {
+    "vercel": "latest"
   }
 }
