@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/api/img", "dest": "/api/img.js" },
+    { "src": "/api/ss", "dest": "/api/ss.js" },
+    { "src": "/", "dest": "/index.js" }
+  ]
+}
