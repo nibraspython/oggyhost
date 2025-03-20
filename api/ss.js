@@ -13,12 +13,19 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(screenshotUrl);
-    const imageData = await response.buffer();
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Screenshot API Error:", errorText);
+      return res.status(500).json({ error: "Screenshot API failed", details: errorText });
+    }
 
+    const imageData = await response.arrayBuffer();
     res.setHeader("Content-Type", "image/jpeg");
-    res.send(imageData);
+    res.send(Buffer.from(imageData));
 
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch screenshot" });
+    console.error("Fetch Error:", error);
+    res.status(500).json({ error: "Failed to fetch screenshot", details: error.message });
   }
 }
