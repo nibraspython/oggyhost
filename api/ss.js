@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "No website URL provided" });
   }
 
-  const screenshotApiKey = process.env.SCREENSHOT_API_KEY;
+  const screenshotApiKey = "60a829";
   const screenshotUrl = `https://api.screenshotmachine.com/?key=${screenshotApiKey}&dimension=1024x768&url=${encodeURIComponent(websiteUrl)}`;
 
   try {
