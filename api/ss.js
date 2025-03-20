@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Only GET requests allowed" });
   }
 
-  const websiteUrl = req.query.q;
+  const websiteUrl = req.query.url;
   if (!websiteUrl) {
     return res.status(400).json({ error: "No website URL provided" });
   }
