@@ -1,19 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/*.js", "use": "@vercel/node" }
+    {
+      "src": "pages/api/insta.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "pages/index.js",
+      "use": "@vercel/next"
+    }
   ],
   "routes": [
-    { "src": "/api/img", "dest": "/api/img.js" },
-    { "src": "/api/insta", "dest": "/api/insta.js" },
-    { "src": "/api/ss", "dest": "/api/ss.js" },
-    { "src": "/", "dest": "/api/index.js" }
-  ],
-  "functions": {
-    "api/insta.js": {
-      "runtime": "@vercel/node",
-      "memory": 1024,
-      "maxDuration": 15
-    }
-  }
+    { "src": "/api/.*", "dest": "/api/insta.js" },
+    { "src": "/.*", "dest": "/index.js" }
+  ]
 }
