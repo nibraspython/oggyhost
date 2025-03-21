@@ -5,8 +5,8 @@
   ],
   "routes": [
     { "src": "/api/img", "dest": "/api/img.js" },
-    { "src": "/api/insta", "dest": "/api/insta.js" },
-    { "src": "/api/ss", "dest": "/api/ss.js" },
-    { "src": "/", "dest": "/api/index.js" }
+    { "src": "/insta", "dest": "/api/insta.js" },
+    { "src": "/ss", "dest": "/api/ss.js" },
+    { "src": "/", "dest": "/index.js" }
   ]
 }
