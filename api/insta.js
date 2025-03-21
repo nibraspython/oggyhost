@@ -20,7 +20,16 @@ export default async function handler(req, res) {
         }
 
         const jsonData = await response.json();
-        res.status(200).json(jsonData);
+
+        // ✅ Customizing JSON response
+        const customData = {
+            status: "success", // Adding status
+            result: jsonData.result || {}, // Keeping the original result
+            join: "KUNDY on Telegram", // Custom field
+            support: "@JERRTY" // Custom field
+        };
+
+        res.status(200).json(customData);
         
     } catch (error) {
         console.error("Fetch Error:", error);
