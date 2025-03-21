@@ -6,7 +6,7 @@
   ],
   "routes": [
     { "src": "/api/img", "dest": "/api/img.js" },
-    { "src": "/api/ss", "dest": "/api/ss.js" },
+    { "src": "/api/ss", "dest": "/api/screenshot.js" },
     { "src": "/", "dest": "/index.js" }
   ]
 }
