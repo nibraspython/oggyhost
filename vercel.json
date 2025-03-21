@@ -11,9 +11,10 @@
     { "src": "/", "dest": "/api/index.js" }
   ],
   "functions": {
-  "api/insta.js": {
-    "runtime": "nodejs18.x",
-    "memory": 1024,
-    "maxDuration": 15
+    "api/insta.js": {
+      "runtime": "nodejs18.x",
+      "memory": 1024,
+      "maxDuration": 15
+    }
   }
 }
