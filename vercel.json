@@ -2,8 +2,7 @@
   "version": 2,
   "builds": [
     { "src": "index.js", "use": "@vercel/node" },
-    { "src": "api/img.js", "use": "@vercel/node" },
-    { "src": "api/ss.js", "use": "@vercel/node" }
+    { "src": "api/*.js", "use": "@vercel/node" }
   ],
   "routes": [
     { "src": "/api/img", "dest": "/api/img.js" },
