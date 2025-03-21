@@ -1,11 +1,12 @@
 import { pipeline } from "@xenova/transformers";
+import fs from "fs";
+import path from "path";
 
-// Load model globally
 let generator = null;
 async function loadModel() {
     if (!generator) {
         console.log("Loading AI model...");
-        generator = await pipeline("text-to-image", "Xenova/stable-diffusion-v1-4"); // ✅ Corrected pipeline
+        generator = await pipeline("image-to-image", "Xenova/stable-diffusion-v1-4");
         console.log("Model loaded.");
     }
 }
@@ -20,26 +21,26 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: "No prompt provided" });
     }
 
-    await loadModel(); // Ensure model is loaded
+    await loadModel();
 
     try {
         console.log(`Generating image for: ${prompt}`);
         const imageTensor = await generator(prompt, { num_images: 1, height: 512, width: 512 });
 
-        // Convert image to Base64 (since file storage isn't available on Vercel)
-        const buffer = await imageTensor[0].sample.toBuffer("png");
-        const base64Image = buffer.toString("base64");
+        const publicDir = path.join(process.cwd(), "public");
+        if (!fs.existsSync(publicDir)) {
+            fs.mkdirSync(publicDir);
+        }
 
-        // ✅ Custom JSON response (Base64 Image)
-        const responseData = {
+        const imagePath = path.join(publicDir, "generated_image.png");
+        fs.writeFileSync(imagePath, Buffer.from(imageTensor[0].sample.data));
+
+        res.status(200).json({
             status: "success",
-            image_base64: `data:image/png;base64,${base64Image}`, // ✅ Directly send base64 image
+            image_url: "/generated_image.png",
             join: "OGGY_WORKSHOP on Telegram",
             support: "@OGGY_WORKSHOP"
-        };
-
-        res.status(200).json(responseData);
-
+        });
     } catch (error) {
         console.error("Image Generation Error:", error);
         res.status(500).json({ error: "Failed to generate image", details: error.message });
