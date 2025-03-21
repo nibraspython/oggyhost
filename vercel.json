@@ -7,6 +7,14 @@
     { "src": "/api/img", "dest": "/api/img.js" },
     { "src": "/api/insta", "dest": "/api/insta.js" },
     { "src": "/api/ss", "dest": "/api/ss.js" },
+    { "src": "/api/insta-dl", "dest": "/api/insta-dl.js" },
     { "src": "/", "dest": "/api/index.js" }
-  ]
+  ],
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18.x",
+      "memory": 512,
+      "maxDuration": 10
+    }
+  }
 }
