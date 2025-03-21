@@ -8,12 +8,5 @@
     { "src": "insta", "dest": "/api/insta" },
     { "src": "/api/ss", "dest": "/api/ss" },
     { "src": "/", "dest": "/api/index" }
-  ],
-  "functions": {
-    "api/insta": {
-      "runtime": "@vercel/node",
-      "memory": 1024,
-      "maxDuration": 15
-    }
-  }
+  ]
 }
