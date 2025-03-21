@@ -1,13 +1,11 @@
 import { pipeline } from "@xenova/transformers";
-import fs from "fs";
-import path from "path";
 
 // Load model globally
 let generator = null;
 async function loadModel() {
     if (!generator) {
         console.log("Loading AI model...");
-        generator = await pipeline("image-to-image", "Xenova/stable-diffusion-v1-4");
+        generator = await pipeline("text-to-image", "Xenova/stable-diffusion-v1-4"); // ✅ Corrected pipeline
         console.log("Model loaded.");
     }
 }
@@ -28,14 +26,14 @@ export default async function handler(req, res) {
         console.log(`Generating image for: ${prompt}`);
         const imageTensor = await generator(prompt, { num_images: 1, height: 512, width: 512 });
 
-        // Save the image
-        const imagePath = path.join(process.cwd(), "public", "generated_image.png");
-        fs.writeFileSync(imagePath, imageTensor[0].sample.toBuffer("png"));
+        // Convert image to Base64 (since file storage isn't available on Vercel)
+        const buffer = await imageTensor[0].sample.toBuffer("png");
+        const base64Image = buffer.toString("base64");
 
-        // ✅ Custom JSON response
+        // ✅ Custom JSON response (Base64 Image)
         const responseData = {
             status: "success",
-            image_url: "/generated_image.png", // Relative path for frontend use
+            image_base64: `data:image/png;base64,${base64Image}`, // ✅ Directly send base64 image
             join: "OGGY_WORKSHOP on Telegram",
             support: "@OGGY_WORKSHOP"
         };
