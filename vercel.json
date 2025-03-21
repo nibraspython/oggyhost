@@ -7,7 +7,7 @@
     { "src": "/api/img", "dest": "/api/img.js" },
     { "src": "/insta", "dest": "/api/insta.js" },
     { "src": "/ss", "dest": "/api/ss.js" },
-    { "src": "/ogg", "dest": "/api/image.js" },
-    { "src": "/", "dest": "/index.js" }
+    { "src": "/image", "dest": "/api/image.js" },
+    { "src": "/", "dest": "/api/index.js" }
   ]
 }
