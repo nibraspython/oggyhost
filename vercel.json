@@ -8,7 +8,6 @@
     { "src": "/api/insta", "dest": "/api/insta" },
     { "src": "/api/ss", "dest": "/api/ss" },
     { "src": "/api/image", "dest": "/api/image" },
-    { "src": "/api", "dest": "/api/index" },
     { "src": "/api/.*", "dest": "/api/index" }
   ]
 }
