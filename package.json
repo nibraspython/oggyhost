@@ -3,15 +3,11 @@
   "version": "1.0.2",
   "main": "index.js",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "node index.js",
+    "build": "echo 'No build step required'",
     "deploy": "npx vercel deploy --prod"
   },
   "dependencies": {
-    "next": "^14.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "node-fetch": "^3.3.2",
     "@xenova/transformers": "^2.5.0",
     "fs-extra": "^11.1.1",
