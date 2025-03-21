@@ -5,9 +5,9 @@
   ],
   "routes": [
     { "src": "/api/img", "dest": "/api/img.js" },
-    { "src": "/insta", "dest": "/api/insta.js" },
-    { "src": "/ss", "dest": "/api/ss.js" },
-    { "src": "/image", "dest": "/api/image.js" },
-    { "src": "/", "dest": "/api/index.js" }
+    { "src": "/api/insta", "dest": "/api/insta.js" },
+    { "src": "/api/ss", "dest": "/api/ss.js" },
+    { "src": "/api/image", "dest": "/api/image.js" },
+    { "src": "/api", "dest": "/api/index.js" }
   ]
 }
