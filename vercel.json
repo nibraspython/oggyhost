@@ -4,9 +4,9 @@
     { "src": "api/*.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/api/img", "dest": "/api/img" },
-    { "src": "insta", "dest": "/api/insta" },
-    { "src": "/api/ss", "dest": "/api/ss" },
-    { "src": "/", "dest": "/api/index" }
+    { "src": "/api/img", "dest": "/api/img.js" },
+    { "src": "insta", "dest": "/api/insta.js" },
+    { "src": "/api/ss", "dest": "/api/ss.js" },
+    { "src": "/", "dest": "/api/index.js" }
   ]
 }
