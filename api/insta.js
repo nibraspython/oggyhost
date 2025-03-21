@@ -25,8 +25,8 @@ export default async function handler(req, res) {
         const customData = {
             status: "success", // Adding status
             result: jsonData.result || {}, // Keeping the original result
-            join: "KUNDY on Telegram", // Custom field
-            support: "@JERRTY" // Custom field
+            join: "OGGY_WORKSHOP on Telegram",
+            support: "@OGGY_WORKSHOP" // Custom field
         };
 
         res.status(200).json(customData);
